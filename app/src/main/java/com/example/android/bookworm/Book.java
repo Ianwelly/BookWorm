@@ -21,54 +21,65 @@ package com.example.android.bookworm;
 public class Book {
 
     /** Magnitude of the earthquake */
-    private double mMagnitude;
+//    private double mMagnitude;
 
     /** Location of the earthquake */
-    private String mLocation;
+    private String mTitle;
+
+    private String mAuthor;
 
     /** Time of the earthquake */
-    private long mTimeInMilliseconds;
+//    private long mTimeInMilliseconds;
 
     /** Url of the earthquake */
     private String mUrl;
 
+
+
     /**
      * Constructs a new {@link Book} object.
      *
-     * @param magnitude is the magnitude (size) of the earthquake
-     * @param location is the city location of the earthquake
-     * @param timeInMilliseconds is the date the earthquake happened
+//     * @param magnitude is the magnitude (size) of the earthquake
+//     * @param title is the city title of the earthquake
+//     * @param timeInMilliseconds is the date the earthquake happened
      */
-    public Book (double magnitude, String location, long timeInMilliseconds, String url) {
-        mMagnitude = magnitude;
-        mLocation = location;
-        mTimeInMilliseconds = timeInMilliseconds;
+    public Book (String title, String author, String url) {
+//        mMagnitude = magnitude;
+        mTitle = title;
+//        mTimeInMilliseconds = timeInMilliseconds;
+        mAuthor = author;
         mUrl = url;
+
     }
 
     /**
      * Returns the magnitude of the earthquake.
      */
-    public double getMagnitude() {
-        return mMagnitude;
-    }
+//    public double getMagnitude() {
+//        return mMagnitude;
+//    }
 
     /**
      * Returns the location of the earthquake.
      */
-    public String getLocation() {
-        return mLocation;
+    public String getTitle() {
+        return mTitle;
     }
 
     /**
      * Returns the time of the earthquake.
      */
-    public long getTimeInMilliseconds() {
-        return mTimeInMilliseconds;
-    }
-
+//    public long getTimeInMilliseconds() {
+//        return mTimeInMilliseconds;
+//    }
+//
     /** Returns the url String */
     public String getUrl() {
         return mUrl;
     }
+
+    public String getAuthor() {
+        return mAuthor;
+    }
+
 }

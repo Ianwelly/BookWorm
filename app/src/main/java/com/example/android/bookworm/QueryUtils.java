@@ -27,7 +27,7 @@ public class QueryUtils {
     /** Tag for the log messages */
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
     /** Sample JSON response for a USGS query */
-    private static final String USGS_REQUEST_URL = " https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=6&limit=10";
+//    private static final String USGS_REQUEST_URL = "https://www.googleapis.com/books/v1/volumes?q=android&maxResults=10";
 
 
     /**
@@ -65,7 +65,7 @@ public class QueryUtils {
 
             // Extract the JSONArray associated with the key called "features",
             // which represents a list of features (or earthquakes).
-            JSONArray earthquakeArray = baseJsonResponse.getJSONArray("features");
+            JSONArray earthquakeArray = baseJsonResponse.getJSONArray("items");
 
             // For each earthquake in the earthquakeArray, create an {@link Earthquake} object
             for (int i = 0; i < earthquakeArray.length(); i++) {
@@ -76,23 +76,35 @@ public class QueryUtils {
                 // For a given earthquake, extract the JSONObject associated with the
                 // key called "properties", which represents a list of all properties
                 // for that earthquake.
-                JSONObject properties = currentEarthquake.getJSONObject("properties");
+                JSONObject properties = currentEarthquake.getJSONObject("volumeInfo");
 
                 // Extract the value for the key called "mag"
-                double magnitude = properties.getDouble("mag");
+//                double magnitude = properties.getDouble("mag");
 
                 // Extract the value for the key called "place"
-                String location = properties.getString("place");
+                String location = properties.getString("title");
+
+                //Extract the value for the key called "author";
+//                JSONObject authorObject = properties.getJSONObject("authors");
+//                JSONArray authorArray = authorObject.getJSONArray("authors");
+                String authorString = properties.getString("authors");
+                String author = authorString.substring(2, authorString.length() -2 );
+
 
                 // Extract the value for the key called "time"
-                long time = properties.getLong("time");
+//                long time = properties.getLong("time");
 
                 // Extract the value for the key called "url"
-                String url = properties.getString("url");
+                String url = properties.getString("previewLink");
+
+//                JSONObject imageLinks = properties.getJSONObject("imageLinks");
+//                String thumbnailString = imageLinks.getString("thumbnail");
+//                Log.v("QueryUtils", "thumbnailString: " + thumbnailString);
+
 
                 // Create a new {@link Earthquake} object with the magnitude, location, time,
                 // and url from the JSON response.
-                Book earthquake = new Book(magnitude, location, time, url);
+                Book earthquake = new Book(location,author,url);
 
                 // Add the new {@link Earthquake} to the list of earthquakes.
                 earthquakes.add(earthquake);

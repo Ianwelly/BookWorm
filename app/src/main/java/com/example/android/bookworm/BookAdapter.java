@@ -29,7 +29,6 @@ package com.example.android.bookworm;
 //import static android.R.attr.format;
 
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,9 +38,8 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.List;
-
 import java.util.Date;
+import java.util.List;
 
 /**
  * An {@link BookAdapter} knows how to create a list item layout for each earthquake
@@ -79,34 +77,39 @@ public class BookAdapter extends ArrayAdapter<Book> {
         // Find the earthquake at the given position in the list of earthquakes
         Book currentBook = getItem(position);
 
-        // Find the TextView with view ID magnitude
-        TextView magnitudeView = (TextView) listItemView.findViewById(R.id.magnitude);
-        // Display the magnitude of the current earthquake in that TextView
-        String formattedMagnitude = formatMagnitude(currentBook.getMagnitude());
-        // Display the magnitude of the current earthquake in that TextView
-        magnitudeView.setText(formattedMagnitude);
+//        // Find the TextView with view ID magnitude
+//        TextView magnitudeView = (TextView) listItemView.findViewById(R.id.magnitude);
+//        // Display the magnitude of the current earthquake in that TextView
+//        String formattedMagnitude = formatMagnitude(currentBook.getMagnitude());
+//        // Display the magnitude of the current earthquake in that TextView
+//        magnitudeView.setText(formattedMagnitude);
 
 //        magnitudeView.setText(currentBook.getMagnitude());
 
+        //Find ImageView with ID image
+//        ImageView image = (ImageView) listItemView.findViewById(R.id.image) ;
+//        image.setImageURI(currentBook.getThumbnailUrl());
+
         // Find the TextView with view ID location
-        TextView locationView = (TextView) listItemView.findViewById(R.id.location);
+        TextView titleView = (TextView) listItemView.findViewById(R.id.title);
         // Display the location of the current earthquake in that TextView
-        locationView.setText(currentBook.getLocation());
+        titleView.setText(currentBook.getTitle());
 
-         Date dateObject = new Date(currentBook.getTimeInMilliseconds());
-
+//         Date dateObject = new Date(currentBook.getTimeInMilliseconds());
+//
         // Find the TextView with view ID date
-        TextView dateView = (TextView) listItemView.findViewById(R.id.date);
+        TextView authorView = (TextView) listItemView.findViewById(R.id.author);
+        authorView.setText((currentBook.getAuthor()));
 
-        String formattedDate = formatDate(dateObject);
-        // Display the date of the current earthquake in that TextView
-        dateView.setText(formattedDate);
-        // Find the TextView with view ID time
-        TextView timeView = (TextView) listItemView.findViewById(R.id.time);
-        // Format the time string (i.e. "4:30PM")
-        String formattedTime = formatTime(dateObject);
-        // Display the time of the current earthquake in that TextView
-        timeView.setText(formattedTime);
+//        String formattedDate = formatDate(dateObject);
+//        // Display the date of the current earthquake in that TextView
+//        authorView.setText(formattedDate);
+//        // Find the TextView with view ID time
+//        TextView timeView = (TextView) listItemView.findViewById(R.id.time);
+//        // Format the time string (i.e. "4:30PM")
+//        String formattedTime = formatTime(dateObject);
+//        // Display the time of the current earthquake in that TextView
+//        timeView.setText(formattedTime);
 
 
         // Return the list item view that is now showing the appropriate data

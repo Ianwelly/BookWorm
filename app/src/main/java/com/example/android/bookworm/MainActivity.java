@@ -30,9 +30,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 BookAdapter mAdapter;
 
-    /** URL for earthquake data from the USGS dataset */
-    private static final String USGS_REQUEST_URL =
-            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
+    private static final String USGS_REQUEST_URL = "https://www.googleapis.com/books/v1/volumes?q=android&maxResults=10";
+
+//    /** URL for earthquake data from the USGS dataset */
+//    private static final String USGS_REQUEST_URL =
+//            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
